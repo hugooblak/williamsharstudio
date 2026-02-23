@@ -114,7 +114,7 @@ export default function Footer() {
                                     href="tel:0707790666"
                                     className="font-mono text-white hover:text-oak transition-colors"
                                 >
-                                    08-31 00 33
+                                    070-779 06 66
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
