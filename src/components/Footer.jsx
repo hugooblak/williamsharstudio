@@ -163,7 +163,7 @@ export default function Footer() {
                 <div className="oak-line mb-8" />
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="font-body text-white/25 text-xs">
-                        © 2024 William's Hårstudio. Alla rättigheter förbehållna.
+                        © 2026 William's Hårstudio. Alla rättigheter förbehållna.
                     </p>
                     <p className="font-mono text-white/15 text-[10px] tracking-widest uppercase">
                         Gävlegatan · Stockholm · Sweden
