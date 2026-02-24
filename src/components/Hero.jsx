@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 const HERO_IMAGE =
-    'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1800&q=80&auto=format&fit=crop'
+    'https://images.unsplash.com/photo-1527736947477-2790e28f3443?w=1800&q=80&auto=format&fit=crop'
 
 export default function Hero() {
     const headlineRef = useRef(null)
@@ -51,7 +51,7 @@ export default function Hero() {
                 className="absolute inset-0"
                 style={{
                     background:
-                        'linear-gradient(to bottom, rgba(18,18,18,0.50) 0%, rgba(18,18,18,0.68) 55%, rgba(18,18,18,0.88) 100%)',
+                        'linear-gradient(to bottom, rgba(250,249,246,0.2) 0%, rgba(250,249,246,0.6) 55%, rgba(250,249,246,0.95) 100%)',
                 }}
             />
 
@@ -60,20 +60,20 @@ export default function Hero() {
                 {/* Eyebrow */}
                 <p
                     ref={subRef}
-                    className="font-mono text-oak text-xs md:text-sm tracking-[0.25em] uppercase mb-4"
+                    className="font-mono text-oak-dark text-xs md:text-sm tracking-[0.25em] uppercase mb-4"
                     style={{ opacity: 0 }}
                 >
-                    Sedan 2010 · Stockholm
+                    En lugn oas i hjärtat av staden där din vision blir verklighet.
                 </p>
 
                 {/* Headline */}
                 <h1
                     ref={headlineRef}
-                    className="font-heading font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight max-w-3xl mb-8"
+                    className="font-heading font-black text-ink text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight max-w-4xl mb-8"
                     style={{ opacity: 0 }}
                 >
-                    Hantverk<br />
-                    <span className="text-oak">på Gävlegatan.</span>
+                    Skräddarsydd hårvård<br />
+                    <span className="text-oak-dark font-normal italic">för din unika stil.</span>
                 </h1>
 
                 {/* CTA + badge row */}
@@ -83,13 +83,11 @@ export default function Hero() {
                     style={{ opacity: 0 }}
                 >
                     <a
-                        href="https://www.bokadirekt.se/places/williams-harstudio-20126"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="#tjanster"
                         id="hero-boka-btn"
-                        className="inline-flex items-center gap-3 bg-oak hover:bg-oak-dark text-white font-heading font-bold text-base px-7 py-4 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-oak/40"
+                        className="inline-flex items-center gap-3 bg-oak hover:bg-oak-dark text-ink font-heading font-bold text-base px-7 py-4 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-oak/40"
                     >
-                        Boka Tid
+                        Upptäck våra behandlingar
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -98,13 +96,13 @@ export default function Hero() {
                     {/* Social proof pill */}
                     <div
                         ref={badgeRef}
-                        className="social-pill inline-flex items-center gap-2.5 rounded-full px-5 py-3"
+                        className="social-pill inline-flex items-center gap-2.5 rounded-full px-5 py-3 !bg-white/40 !border-white/40"
                         style={{ opacity: 0 }}
                     >
                         <span className="text-lg leading-none">⭐</span>
-                        <span className="font-body text-white text-sm font-medium leading-tight">
+                        <span className="font-body text-ink text-sm font-medium leading-tight">
                             4.9/5{' '}
-                            <span className="text-white/70 font-normal">
+                            <span className="text-ink/70 font-normal">
                                 (3 863+ betyg på Bokadirekt)
                             </span>
                         </span>
@@ -113,10 +111,10 @@ export default function Hero() {
             </div>
 
             {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-40">
-                <span className="font-mono text-white text-[10px] tracking-widest uppercase">Scroll</span>
-                <div className="w-px h-8 bg-white/50 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white animate-bounce" style={{ animationDuration: '1.6s' }} />
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60">
+                <span className="font-mono text-ink text-[10px] tracking-widest uppercase">Scroll</span>
+                <div className="w-px h-8 bg-ink/30 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-ink animate-bounce" style={{ animationDuration: '1.6s' }} />
                 </div>
             </div>
         </section>

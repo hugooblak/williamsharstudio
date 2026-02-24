@@ -8,13 +8,13 @@ export default {
         extend: {
             colors: {
                 paper: '#FAF9F6',
-                ink: '#121212',
-                oak: '#C4A484',
+                ink: '#1A1A1A',
+                oak: '#E5D3B3',
                 slate: '#F5F5F7',
-                'oak-dark': '#A88860',
+                'oak-dark': '#D4B996',
             },
             fontFamily: {
-                heading: ['Archivo', 'sans-serif'],
+                heading: ['"Playfair Display"', 'serif'],
                 body: ['Inter', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
             },

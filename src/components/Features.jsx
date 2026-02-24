@@ -4,23 +4,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Portfolio images — minimalist barbershop styles
 const PORTFOLIO_IMAGES = [
     {
-        url: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=80&auto=format&fit=crop',
-        caption: 'Klassisk Fade',
+        url: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80&auto=format&fit=crop',
+        caption: 'Hårfärgning',
     },
     {
-        url: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=80&auto=format&fit=crop',
-        caption: 'Textured Crop',
+        url: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format&fit=crop',
+        caption: 'Styling',
     },
     {
-        url: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80&auto=format&fit=crop',
-        caption: 'Precision Cut',
+        url: 'https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=800&q=80&auto=format&fit=crop',
+        caption: 'Hårvård',
     },
     {
-        url: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80&auto=format&fit=crop',
-        caption: 'Skin Fade',
+        url: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=800&q=80&auto=format&fit=crop',
+        caption: 'Balayage',
     },
 ]
 
@@ -38,9 +37,9 @@ function PortfolioPillar() {
 
     return (
         <div className="flex flex-col h-full">
-            <p className="font-mono text-oak text-[10px] tracking-[0.3em] uppercase mb-4">01 / Portfolio</p>
+            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">01 / Inspiration</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vårt arbete</h3>
-            <div className="relative flex-1 rounded-2xl overflow-hidden bg-slate" style={{ minHeight: '320px', maxHeight: '400px' }}>
+            <div className="relative flex-1 rounded-3xl overflow-hidden bg-slate" style={{ minHeight: '320px', maxHeight: '400px' }}>
                 {PORTFOLIO_IMAGES.map((img, i) => (
                     <div
                         key={i}
@@ -53,13 +52,14 @@ function PortfolioPillar() {
                             className="w-full h-full object-cover"
                             loading="lazy"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-ink/70 to-transparent">
-                            <span className="font-mono text-white text-xs tracking-widest uppercase">{img.caption}</span>
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                            <span className="font-heading font-semibold text-white text-lg">{img.caption}</span>
                         </div>
                     </div>
                 ))}
                 {/* Dot indicators */}
-                <div className="absolute top-3 right-3 flex gap-1.5">
+                <div className="absolute top-4 right-4 flex gap-1.5 z-10">
                     {PORTFOLIO_IMAGES.map((_, i) => (
                         <button
                             key={i}
@@ -99,22 +99,22 @@ function ProcessPillar() {
 
     return (
         <div ref={wrapperRef} className="flex flex-col h-full">
-            <p className="font-mono text-oak text-[10px] tracking-[0.3em] uppercase mb-4">02 / Process</p>
+            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">02 / Process</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår process</h3>
-            <div className="flex-1 bg-ink rounded-2xl p-8 flex flex-col justify-center gap-6">
+            <div className="flex-1 bg-[#FDFBF7] border border-oak/20 rounded-3xl p-8 flex flex-col justify-center gap-6 shadow-sm">
                 {PROCESS_STEPS.map((step, i) => (
                     <div
                         key={step}
                         className={`flex items-center gap-4 transition-all duration-500 ${visibleSteps.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                             }`}
                     >
-                        <span className="font-mono text-oak/50 text-xs w-6">{String(i + 1).padStart(2, '0')}</span>
-                        <div className="flex-1 h-px bg-white/10" />
-                        <span className="font-mono font-semibold text-white text-sm md:text-base tracking-wider">
+                        <span className="font-mono text-oak w-6">{String(i + 1).padStart(2, '0')}</span>
+                        <div className="flex-1 h-px bg-ink/10" />
+                        <span className="font-heading font-semibold text-ink text-sm md:text-base tracking-wider">
                             {step}
                         </span>
                         {visibleSteps.includes(i) && i === visibleSteps.length - 1 && (
-                            <span className="cursor-blink text-oak font-mono text-lg">_</span>
+                            <span className="cursor-blink text-oak-dark font-mono text-lg">_</span>
                         )}
                     </div>
                 ))}
@@ -136,9 +136,9 @@ function LocationPillar() {
 
     return (
         <div className="flex flex-col h-full">
-            <p className="font-mono text-oak text-[10px] tracking-[0.3em] uppercase mb-4">03 / Hitta oss</p>
+            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">03 / Hitta oss</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår plats</h3>
-            <div className="flex-1 bg-slate rounded-2xl p-8 flex flex-col justify-between gap-6">
+            <div className="flex-1 bg-slate rounded-3xl p-8 flex flex-col justify-between gap-6">
                 {/* Address block */}
                 <div id="hitta-oss">
                     <div className="flex items-start gap-3 mb-5">
@@ -220,7 +220,7 @@ export default function Features() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Section heading */}
                 <div ref={headingRef} className="mb-16 max-w-xl">
-                    <p className="font-mono text-oak text-xs tracking-[0.3em] uppercase mb-3">
+                    <p className="font-mono text-oak-dark text-xs tracking-[0.3em] uppercase mb-3">
                         Tre pelare
                     </p>
                     <h2 className="font-heading font-black text-ink text-4xl md:text-5xl leading-tight">

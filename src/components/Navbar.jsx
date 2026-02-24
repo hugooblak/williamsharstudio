@@ -21,15 +21,15 @@ export default function Navbar() {
         <nav
             ref={navRef}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-ink/5'
-                    : 'bg-transparent'
+                ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-ink/5'
+                : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <a href="#" className="flex flex-col leading-tight group">
                     <span
-                        className={`font-heading font-bold text-[17px] tracking-tight transition-colors duration-300 ${scrolled ? 'text-ink' : 'text-white'
+                        className={`font-heading font-bold text-[17px] tracking-tight transition-colors duration-300 ${scrolled ? 'text-ink' : 'text-ink/90'
                             }`}
                     >
                         William's Hårstudio
@@ -48,7 +48,7 @@ export default function Navbar() {
                         <li key={l.label}>
                             <a
                                 href={l.href}
-                                className={`font-body text-[13px] font-medium tracking-wide transition-colors duration-300 hover:text-oak ${scrolled ? 'text-ink/70' : 'text-white/80'
+                                className={`font-body text-[13px] font-medium tracking-wide transition-colors duration-300 hover:text-oak-dark ${scrolled ? 'text-ink/70' : 'text-ink/80'
                                     }`}
                             >
                                 {l.label}
@@ -74,7 +74,7 @@ export default function Navbar() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className={`md:hidden p-2 transition-colors ${scrolled ? 'text-ink' : 'text-white'}`}
+                        className={`md:hidden p-2 transition-colors ${scrolled ? 'text-ink' : 'text-ink/90'}`}
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Meny"
                     >
@@ -102,7 +102,7 @@ export default function Navbar() {
                             key={l.label}
                             href={l.href}
                             onClick={() => setMenuOpen(false)}
-                            className="font-body text-ink/80 hover:text-oak font-medium text-base py-1"
+                            className="font-body text-ink/80 hover:text-oak-dark font-medium text-base py-1"
                         >
                             {l.label}
                         </a>

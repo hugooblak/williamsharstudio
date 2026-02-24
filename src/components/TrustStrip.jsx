@@ -35,7 +35,7 @@ export default function TrustStrip() {
     return (
         <section
             ref={stripRef}
-            className="bg-ink text-white py-5"
+            className="bg-[#FDFBF7] border-y border-oak/20 py-5"
             aria-label="Förtroendeindikatorer"
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -43,13 +43,13 @@ export default function TrustStrip() {
                     {ITEMS.map((item, i) => (
                         <div key={i} className="trust-item flex items-center gap-3" style={{ opacity: 0 }}>
                             {i > 0 && (
-                                <div className="hidden md:block w-px h-6 bg-white/20" />
+                                <div className="hidden md:block w-px h-6 bg-ink/10" />
                             )}
                             <div className="flex items-baseline gap-2 md:px-8">
-                                <span className="font-mono-nums font-semibold text-oak text-xl md:text-2xl">
+                                <span className="font-mono-nums font-semibold text-ink text-xl md:text-2xl">
                                     {item.value}
                                 </span>
-                                <span className="font-body text-white/70 text-xs md:text-sm tracking-wide">
+                                <span className="font-body text-ink/60 text-xs md:text-sm tracking-wide">
                                     {item.label}
                                 </span>
                             </div>

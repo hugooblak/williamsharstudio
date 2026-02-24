@@ -1,3 +1,6 @@
+@import '@fontsource/inter';
+@import '@fontsource/playfair-display';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,13 +13,18 @@
   body {
     font-family: 'Inter', sans-serif;
     background-color: #FAF9F6;
-    color: #121212;
+    color: #1A1A1A;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Archivo', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
   }
 }
 
@@ -30,19 +38,29 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #FAF9F6;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #C4A484;
+  background: #E5D3B3;
   border-radius: 3px;
 }
 
 /* Cursor line for typewriter */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
+
 .cursor-blink {
   animation: blink 1s step-end infinite;
 }
@@ -53,6 +71,7 @@
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -69,6 +88,7 @@
   transform: translateX(8px);
   transition: all 0.25s ease;
 }
+
 .service-row:hover .boka-btn {
   opacity: 1;
   transform: translateX(0);
@@ -76,39 +96,63 @@
 
 /* Oak gradient line */
 .oak-line {
-  background: linear-gradient(90deg, transparent, #C4A484, transparent);
+  background: linear-gradient(90deg, transparent, #E5D3B3, transparent);
   height: 1px;
   width: 100%;
 }
 
 /* Pill badge */
 .social-pill {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* Status dot pulse */
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-  50% { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+  }
 }
+
 .pulse-dot {
   animation: pulse-dot 2s ease infinite;
 }
 
 /* Typewriter word animation */
 @keyframes wordFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .word-appear {
   animation: wordFadeIn 0.4s ease forwards;
 }
 
 /* Image cycle fade */
 @keyframes imgFade {
-  0%, 100% { opacity: 0; }
-  10%, 45% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10%,
+  45% {
+    opacity: 1;
+  }
 }

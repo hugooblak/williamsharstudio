@@ -5,15 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const SERVICES = [
-    { name: 'Herrklippning', price: '480', unit: ':-' },
-    { name: 'Skinfade', price: '450', unit: ':-' },
-    { name: 'Damklippning', price: '580', unit: ':-' },
-    { name: 'Barnklippning (under 12 år)', price: '320', unit: ':-' },
-    { name: 'Skägg – Klippning & Formning', price: '280', unit: ':-' },
-    { name: 'Klippning + Skägg Kombo', price: '680', unit: ':-' },
-    { name: 'Rakning (Straight Razor)', price: '360', unit: ':-' },
-    { name: 'Hårfärgning (herr)', price: '750', unit: ':-' },
-    { name: 'Toning & Highlights', price: '950+', unit: ':-' },
+    { name: 'Klippning & Styling', desc: 'Inklusive konsultation och tvätt.', price: '750', unit: ':-' },
+    { name: 'Balayage & Slingor', desc: 'För ett naturligt, solkysst resultat.', price: '1850+', unit: ':-' },
+    { name: 'Färgning', desc: 'Från rot-touch-up till helförändring.', price: '1250+', unit: ':-' },
+    { name: 'Olaplex & Kur', desc: 'Återuppbyggande behandlingar för maximal glans.', price: '550', unit: ':-' },
 ]
 
 export default function Services() {
@@ -59,7 +54,7 @@ export default function Services() {
             <div className="max-w-4xl mx-auto px-6 lg:px-12">
                 {/* Section header */}
                 <div ref={headingRef} className="mb-16">
-                    <p className="font-mono text-oak text-xs tracking-[0.3em] uppercase mb-3">
+                    <p className="font-mono text-oak-dark text-xs tracking-[0.3em] uppercase mb-3">
                         Vad vi erbjuder
                     </p>
                     <h2
@@ -78,13 +73,18 @@ export default function Services() {
                             key={i}
                             className="service-row group flex items-center justify-between py-5 border-b border-ink/8 hover:bg-slate/60 -mx-4 px-4 rounded-lg transition-colors duration-200"
                         >
-                            {/* Name */}
-                            <div className="flex items-center gap-4 flex-1 min-w-0">
-                                <span className="font-mono text-oak/40 text-xs w-5 flex-shrink-0">
-                                    {String(i + 1).padStart(2, '0')}
-                                </span>
-                                <span className="font-body text-ink font-medium text-base truncate">
-                                    {s.name}
+                            {/* Name & Desc */}
+                            <div className="flex flex-col flex-1 min-w-0 pr-4">
+                                <div className="flex items-center gap-4">
+                                    <span className="font-mono text-oak-dark/60 text-xs w-5 flex-shrink-0">
+                                        {String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <span className="font-body text-ink font-medium text-base truncate">
+                                        {s.name}
+                                    </span>
+                                </div>
+                                <span className="font-body text-ink/60 text-sm ml-9 mt-1 hidden sm:block">
+                                    {s.desc}
                                 </span>
                             </div>
 
@@ -98,7 +98,7 @@ export default function Services() {
                                     href="https://www.bokadirekt.se/places/williams-harstudio-20126"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="boka-btn bg-oak text-white font-heading font-semibold text-xs px-4 py-2 rounded-full hover:bg-oak-dark transition-colors"
+                                    className="boka-btn bg-oak text-ink font-heading font-semibold text-xs px-4 py-2 rounded-full hover:bg-oak-dark transition-colors"
                                     aria-label={`Boka ${s.name}`}
                                 >
                                     Boka
