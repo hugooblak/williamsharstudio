@@ -39,7 +39,7 @@ function PortfolioPillar() {
         <div className="flex flex-col h-full">
             <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">01 / Inspiration</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vårt arbete</h3>
-            <div className="relative flex-1 rounded-3xl overflow-hidden bg-slate shadow-inner" style={{ minHeight: '320px', maxHeight: '400px' }}>
+            <div className="relative flex-1 rounded-3xl overflow-hidden bg-slate shadow-inner min-h-[380px]">
                 {PORTFOLIO_IMAGES.map((img, i) => (
                     <div
                         key={i}
@@ -58,16 +58,6 @@ function PortfolioPillar() {
                         </div>
                     </div>
                 ))}
-                <div className="absolute top-4 right-4 flex gap-1.5 z-10">
-                    {PORTFOLIO_IMAGES.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => setCurrent(i)}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-oak w-4' : 'bg-white/50'}`}
-                            aria-label={`Bild ${i + 1}`}
-                        />
-                    ))}
-                </div>
             </div>
         </div>
     )
@@ -99,20 +89,12 @@ function ProcessPillar() {
         <div ref={wrapperRef} className="flex flex-col h-full">
             <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">02 / Process</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår process</h3>
-            <div className="flex-1 bg-paper border border-oak/30 rounded-3xl p-8 flex flex-col justify-center gap-6 shadow-sm">
+            <div className="flex-1 bg-paper border border-oak/30 rounded-3xl p-8 flex flex-col justify-center gap-6 shadow-sm min-h-[380px]">
                 {PROCESS_STEPS.map((step, i) => (
-                    <div
-                        key={step}
-                        className={`flex items-center gap-4 transition-all duration-500 ${visibleSteps.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                    >
+                    <div key={step} className={`flex items-center gap-4 transition-all duration-500 ${visibleSteps.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                         <span className="font-mono text-oak-deep font-bold w-6">{String(i + 1).padStart(2, '0')}</span>
                         <div className="flex-1 h-px bg-ink/10" />
-                        <span className="font-heading font-semibold text-ink text-sm md:text-base tracking-wider">
-                            {step}
-                        </span>
-                        {visibleSteps.includes(i) && i === visibleSteps.length - 1 && (
-                            <span className="cursor-blink text-oak-deep font-mono text-lg font-bold">_</span>
-                        )}
+                        <span className="font-heading font-semibold text-ink text-sm md:text-base tracking-wider">{step}</span>
                     </div>
                 ))}
             </div>
@@ -126,7 +108,6 @@ function LocationPillar() {
     useEffect(() => {
         const now = new Date()
         const hour = now.getHours()
-        // Öppet 10-19 alla dagar
         setIsOpen(hour >= 10 && hour < 19)
     }, [])
 
@@ -134,8 +115,8 @@ function LocationPillar() {
         <div className="flex flex-col h-full">
             <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">03 / Hitta oss</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår plats</h3>
-            <div className="flex-1 bg-slate rounded-3xl p-8 flex flex-col justify-between gap-6 shadow-sm">
-                <div id="hitta-oss">
+            <div className="flex-1 bg-slate rounded-3xl p-8 flex flex-col justify-between shadow-sm min-h-[380px]">
+                <div>
                     <div className="flex items-start gap-3 mb-5">
                         <span className="text-2xl mt-0.5">📍</span>
                         <div>
@@ -144,33 +125,23 @@ function LocationPillar() {
                         </div>
                     </div>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${isOpen ? 'bg-green-600 pulse-dot' : 'bg-red-500'}`} />
-                        <span className="font-body text-sm font-bold text-ink">
-                            {isOpen ? 'Öppet nu' : 'Stängt just nu'}
-                        </span>
-                        <span className="font-body text-xs text-ink/50">
-                            {isOpen ? '· Stänger 19:00' : '· Öppnar 10:00'}
-                        </span>
+                        <div className={`w-2.5 h-2.5 rounded-full ${isOpen ? 'bg-green-600 animate-pulse' : 'bg-red-500'}`} />
+                        <span className="font-body text-sm font-bold text-ink">{isOpen ? 'Öppet nu' : 'Stängt'}</span>
+                    </div>
+                    <div className="space-y-3">
+                        <div className="flex justify-between items-center pb-3 border-b border-ink/5">
+                            <span className="font-body text-ink/70 text-sm">Måndag – Söndag</span>
+                            <span className="font-mono text-ink text-sm font-semibold">10:00 – 19:00</span>
+                        </div>
                     </div>
                 </div>
-
-                <div className="space-y-2">
-                    <div className="flex justify-between items-center py-2 border-b border-ink/8 last:border-0">
-                        <span className="font-body text-ink/70 text-sm">Måndag – Söndag</span>
-                        <span className="font-mono text-ink text-sm font-semibold">10:00 – 19:00</span>
-                    </div>
-                </div>
-
                 <a
-                    href="https://maps.google.com/?q=Gävlegatan+1+Stockholm"
+                    href="https://www.google.com/maps/dir//G%C3%A4vlegatan+1,+113+30+Stockholm/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 border-2 border-ink/10 hover:border-oak-deep text-ink hover:text-oak-deep font-heading font-bold text-sm px-5 py-3 rounded-full transition-all duration-200"
                 >
-                    Vägbeskrivning
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    Öppna vägbeskrivning
                 </a>
             </div>
         </div>
@@ -180,35 +151,35 @@ function LocationPillar() {
 export default function Features() {
     const headingRef = useRef(null)
 
-    useEffect(() => {
-        gsap.from(headingRef.current, {
-            y: 32,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: headingRef.current,
-                start: 'top 88%',
-            },
-        })
-    }, [])
-
     return (
         <section id="om-oss" className="bg-white py-24 md:py-32">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div ref={headingRef} className="mb-16 max-w-xl">
-                    <p className="font-mono text-oak-deep text-xs tracking-[0.3em] uppercase mb-3 font-bold">
-                        Tre pelare
-                    </p>
-                    <h2 className="font-heading font-black text-ink text-4xl md:text-5xl leading-tight">
-                        Det vi gör bäst
-                    </h2>
+                    <p className="font-mono text-oak-deep text-xs tracking-[0.3em] uppercase mb-3 font-bold">Tre pelare</p>
+                    <h2 className="font-heading font-black text-ink text-4xl md:text-5xl leading-tight">Det vi gör bäst</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* De tre pelarna */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <PortfolioPillar />
                     <ProcessPillar />
                     <LocationPillar />
+                </div>
+
+                {/* Kartan som en bred ruta under pelarna */}
+                <div className="w-full h-[350px] rounded-3xl overflow-hidden border border-ink/10 shadow-sm relative group">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.0205561569!2d18.03350327735313!3d59.34105461013401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d77f284e03f%3A0xc3f986427a94435b!2sG%C3%A4vlegatan%201%2C%20113%2030%20Stockholm!5e0!3m2!1ssv!2sse!4v1708785000000!5m2!1ssv!2sse"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, filter: 'grayscale(0.2) contrast(1.1)' }}
+                        allowFullScreen=""
+                        loading="lazy"
+                    ></iframe>
+                    {/* En liten overlay-etikett för att göra det lyxigt */}
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full border border-ink/5 pointer-events-none">
+                        <span className="font-mono text-[10px] text-ink font-bold uppercase tracking-widest">Hitta till studion</span>
+                    </div>
                 </div>
             </div>
         </section>
