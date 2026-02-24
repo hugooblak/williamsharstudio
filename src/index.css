@@ -16,6 +16,7 @@
     color: #1A1A1A;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 
   h1,
@@ -25,6 +26,7 @@
   h5,
   h6 {
     font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -32,11 +34,19 @@
   .font-mono-nums {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  .text-soft-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 40%, transparent 100%);
+  }
 }
 
-/* Scroll-hide scrollbar */
+/* Anpassad scrollbar - Nu med bättre kontrast */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,11 +54,42 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E5D3B3;
-  border-radius: 3px;
+  background: #947D5C;
+  /* Använder oak-deep */
+  border-radius: 10px;
+  border: 2px solid #FAF9F6;
 }
 
-/* Cursor line for typewriter */
+/* Oak gradient line - Nu tydligare mot vitt */
+.oak-line {
+  background: linear-gradient(90deg, transparent, #947D5C, transparent);
+  height: 1px;
+  width: 100%;
+  opacity: 0.5;
+}
+
+/* Pill badge */
+.social-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Service row hover reveal */
+.service-row .boka-btn {
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-row:hover .boka-btn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animationer */
 @keyframes blink {
 
   0%,
@@ -65,11 +106,10 @@
   animation: blink 1s step-end infinite;
 }
 
-/* Smooth fade-in for sections */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
 
   to {
@@ -79,80 +119,21 @@
 }
 
 .fade-up {
-  animation: fadeUp 0.7s ease both;
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-/* Service row hover reveal */
-.service-row .boka-btn {
-  opacity: 0;
-  transform: translateX(8px);
-  transition: all 0.25s ease;
-}
-
-.service-row:hover .boka-btn {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Oak gradient line */
-.oak-line {
-  background: linear-gradient(90deg, transparent, #E5D3B3, transparent);
-  height: 1px;
-  width: 100%;
-}
-
-/* Pill badge */
-.social-pill {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-/* Status dot pulse */
 @keyframes pulse-dot {
 
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
   }
 
   50% {
-    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
   }
 }
 
 .pulse-dot {
   animation: pulse-dot 2s ease infinite;
-}
-
-/* Typewriter word animation */
-@keyframes wordFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.word-appear {
-  animation: wordFadeIn 0.4s ease forwards;
-}
-
-/* Image cycle fade */
-@keyframes imgFade {
-
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-  10%,
-  45% {
-    opacity: 1;
-  }
 }

@@ -37,9 +37,9 @@ function PortfolioPillar() {
 
     return (
         <div className="flex flex-col h-full">
-            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">01 / Inspiration</p>
+            <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">01 / Inspiration</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vårt arbete</h3>
-            <div className="relative flex-1 rounded-3xl overflow-hidden bg-slate" style={{ minHeight: '320px', maxHeight: '400px' }}>
+            <div className="relative flex-1 rounded-3xl overflow-hidden bg-slate shadow-inner" style={{ minHeight: '320px', maxHeight: '400px' }}>
                 {PORTFOLIO_IMAGES.map((img, i) => (
                     <div
                         key={i}
@@ -52,20 +52,18 @@ function PortfolioPillar() {
                             className="w-full h-full object-cover"
                             loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
                         <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <span className="font-heading font-semibold text-white text-lg">{img.caption}</span>
+                            <span className="font-heading font-semibold text-white text-lg shadow-sm">{img.caption}</span>
                         </div>
                     </div>
                 ))}
-                {/* Dot indicators */}
                 <div className="absolute top-4 right-4 flex gap-1.5 z-10">
                     {PORTFOLIO_IMAGES.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setCurrent(i)}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-oak w-4' : 'bg-white/50'
-                                }`}
+                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-oak w-4' : 'bg-white/50'}`}
                             aria-label={`Bild ${i + 1}`}
                         />
                     ))}
@@ -99,22 +97,21 @@ function ProcessPillar() {
 
     return (
         <div ref={wrapperRef} className="flex flex-col h-full">
-            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">02 / Process</p>
+            <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">02 / Process</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår process</h3>
-            <div className="flex-1 bg-[#FDFBF7] border border-oak/20 rounded-3xl p-8 flex flex-col justify-center gap-6 shadow-sm">
+            <div className="flex-1 bg-paper border border-oak/30 rounded-3xl p-8 flex flex-col justify-center gap-6 shadow-sm">
                 {PROCESS_STEPS.map((step, i) => (
                     <div
                         key={step}
-                        className={`flex items-center gap-4 transition-all duration-500 ${visibleSteps.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                            }`}
+                        className={`flex items-center gap-4 transition-all duration-500 ${visibleSteps.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     >
-                        <span className="font-mono text-oak w-6">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="font-mono text-oak-deep font-bold w-6">{String(i + 1).padStart(2, '0')}</span>
                         <div className="flex-1 h-px bg-ink/10" />
                         <span className="font-heading font-semibold text-ink text-sm md:text-base tracking-wider">
                             {step}
                         </span>
                         {visibleSteps.includes(i) && i === visibleSteps.length - 1 && (
-                            <span className="cursor-blink text-oak-dark font-mono text-lg">_</span>
+                            <span className="cursor-blink text-oak-deep font-mono text-lg font-bold">_</span>
                         )}
                     </div>
                 ))}
@@ -127,66 +124,52 @@ function LocationPillar() {
     const [isOpen, setIsOpen] = useState(true)
 
     useEffect(() => {
-        // Simple open/closed status based on time (Mon–Sat 9–19)
         const now = new Date()
-        const day = now.getDay() // 0=Sun
         const hour = now.getHours()
-        setIsOpen(day >= 1 && day <= 6 && hour >= 9 && hour < 19)
+        // Öppet 10-19 alla dagar
+        setIsOpen(hour >= 10 && hour < 19)
     }, [])
 
     return (
         <div className="flex flex-col h-full">
-            <p className="font-mono text-oak-dark text-[10px] tracking-[0.3em] uppercase mb-4">03 / Hitta oss</p>
+            <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">03 / Hitta oss</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår plats</h3>
-            <div className="flex-1 bg-slate rounded-3xl p-8 flex flex-col justify-between gap-6">
-                {/* Address block */}
+            <div className="flex-1 bg-slate rounded-3xl p-8 flex flex-col justify-between gap-6 shadow-sm">
                 <div id="hitta-oss">
                     <div className="flex items-start gap-3 mb-5">
                         <span className="text-2xl mt-0.5">📍</span>
                         <div>
                             <p className="font-heading font-bold text-ink text-xl">Gävlegatan 1</p>
-                            <p className="font-body text-ink/50 text-sm">113 30 Stockholm</p>
+                            <p className="font-body text-ink/60 text-sm">113 30 Stockholm</p>
                         </div>
                     </div>
-                    {/* Status indicator */}
                     <div className="flex items-center gap-3 mb-6">
-                        <div
-                            className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${isOpen ? 'bg-green-500 pulse-dot' : 'bg-red-400'
-                                }`}
-                        />
-                        <span className="font-body text-sm font-semibold text-ink">
+                        <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${isOpen ? 'bg-green-600 pulse-dot' : 'bg-red-500'}`} />
+                        <span className="font-body text-sm font-bold text-ink">
                             {isOpen ? 'Öppet nu' : 'Stängt just nu'}
                         </span>
-                        <span className="font-body text-xs text-ink/40">
-                            {isOpen ? '· Stänger 19:00' : '· Öppnar 09:00'}
+                        <span className="font-body text-xs text-ink/50">
+                            {isOpen ? '· Stänger 19:00' : '· Öppnar 10:00'}
                         </span>
                     </div>
                 </div>
 
-                {/* Hours */}
                 <div className="space-y-2">
-                    {[
-                        { day: 'Måndag – Fredag', time: '09:00 – 19:00' },
-                        { day: 'Lördag', time: '10:00 – 17:00' },
-                        { day: 'Söndag', time: 'Stängt' },
-                    ].map((row) => (
-                        <div key={row.day} className="flex justify-between items-center py-2 border-b border-ink/8 last:border-0">
-                            <span className="font-body text-ink/60 text-sm">{row.day}</span>
-                            <span className="font-mono text-ink text-sm font-medium">{row.time}</span>
-                        </div>
-                    ))}
+                    <div className="flex justify-between items-center py-2 border-b border-ink/8 last:border-0">
+                        <span className="font-body text-ink/70 text-sm">Måndag – Söndag</span>
+                        <span className="font-mono text-ink text-sm font-semibold">10:00 – 19:00</span>
+                    </div>
                 </div>
 
-                {/* Directions CTA */}
                 <a
                     href="https://maps.google.com/?q=Gävlegatan+1+Stockholm"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 border border-ink/20 hover:border-oak text-ink hover:text-oak font-heading font-semibold text-sm px-5 py-3 rounded-full transition-all duration-200"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-ink/10 hover:border-oak-deep text-ink hover:text-oak-deep font-heading font-bold text-sm px-5 py-3 rounded-full transition-all duration-200"
                 >
                     Vägbeskrivning
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </a>
             </div>
@@ -195,7 +178,6 @@ function LocationPillar() {
 }
 
 export default function Features() {
-    const sectionRef = useRef(null)
     const headingRef = useRef(null)
 
     useEffect(() => {
@@ -212,15 +194,10 @@ export default function Features() {
     }, [])
 
     return (
-        <section
-            id="om-oss"
-            ref={sectionRef}
-            className="bg-white py-24 md:py-32"
-        >
+        <section id="om-oss" className="bg-white py-24 md:py-32">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                {/* Section heading */}
                 <div ref={headingRef} className="mb-16 max-w-xl">
-                    <p className="font-mono text-oak-dark text-xs tracking-[0.3em] uppercase mb-3">
+                    <p className="font-mono text-oak-deep text-xs tracking-[0.3em] uppercase mb-3 font-bold">
                         Tre pelare
                     </p>
                     <h2 className="font-heading font-black text-ink text-4xl md:text-5xl leading-tight">
@@ -228,7 +205,6 @@ export default function Features() {
                     </h2>
                 </div>
 
-                {/* Three pillars grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <PortfolioPillar />
                     <ProcessPillar />

@@ -8,7 +8,7 @@ const ITEMS = [
     { value: '3 863+', label: 'Nöjda kunder' },
     { value: '4.9/5', label: 'på Bokadirekt' },
     { value: '#1', label: 'Topprankning 2024' },
-    { value: '15+', label: 'Års erfarenhet' },
+    { value: '17+', label: 'Års erfarenhet' },
 ]
 
 export default function TrustStrip() {
@@ -19,8 +19,7 @@ export default function TrustStrip() {
         gsap.fromTo(items,
             { opacity: 0, y: 16 },
             {
-                opacity: 1,
-                y: 0,
+                opacity: 1, y: 0,
                 stagger: 0.12,
                 duration: 0.6,
                 ease: 'power2.out',
@@ -35,7 +34,7 @@ export default function TrustStrip() {
     return (
         <section
             ref={stripRef}
-            className="bg-[#FDFBF7] border-y border-oak/20 py-5"
+            className="bg-white border-y border-oak/30 py-6"
             aria-label="Förtroendeindikatorer"
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -46,10 +45,10 @@ export default function TrustStrip() {
                                 <div className="hidden md:block w-px h-6 bg-ink/10" />
                             )}
                             <div className="flex items-baseline gap-2 md:px-8">
-                                <span className="font-mono-nums font-semibold text-ink text-xl md:text-2xl">
+                                <span className="font-mono-nums font-bold text-ink text-xl md:text-2xl">
                                     {item.value}
                                 </span>
-                                <span className="font-body text-ink/60 text-xs md:text-sm tracking-wide">
+                                <span className="font-body text-oak-deep text-xs md:text-sm tracking-wide font-bold">
                                     {item.label}
                                 </span>
                             </div>
