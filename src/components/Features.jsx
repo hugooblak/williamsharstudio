@@ -177,8 +177,10 @@ export default function Features() {
                         loading="lazy"
                     ></iframe>
                     {/* En liten overlay-etikett för att göra det lyxigt */}
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full border border-ink/5 pointer-events-none">
-                        <span className="font-mono text-[10px] text-ink font-bold uppercase tracking-widest">Hitta till studion</span>
+                    <div className="absolute top-4 right-4 bg-paper/90 backdrop-blur-sm px-4 py-2 rounded-full border border-oak-deep/20 shadow-md pointer-events-none z-10">
+                        <span className="font-mono text-[10px] text-ink font-bold uppercase tracking-widest">
+                            Hitta till studion
+                        </span>
                     </div>
                 </div>
             </div>
