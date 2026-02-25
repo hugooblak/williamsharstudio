@@ -35,7 +35,7 @@ export default function Navbar() {
                         William's Hårstudio
                     </span>
                     <span
-                        className={`font-mono text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-ink/60' : 'text-oak'
+                        className={`font-mono text-[10px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-oak-deep' : 'text-oak'
                             }`}
                     >
                         Gävlegatan · Stockholm
@@ -63,7 +63,7 @@ export default function Navbar() {
                         href="https://www.bokadirekt.se/places/williams-harstudio-20126"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden sm:inline-flex items-center gap-2 bg-oak hover:bg-oak-dark text-ink font-heading font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-oak/30"
+                        className="hidden sm:inline-flex items-center gap-2 bg-oak hover:bg-oak-dark text-ink font-heading font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-oak/30"
                     >
                         Boka Tid
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
