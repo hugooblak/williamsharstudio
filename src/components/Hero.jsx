@@ -11,9 +11,6 @@ export default function Hero() {
     const containerRef = useRef(null)
 
     useEffect(() => {
-        // Vi mörkar ner elementen med GSAP istället för hårdkodad CSS för att säkra att de syns om JS dör
-        const elements = [subRef.current, headlineRef.current, badgeRef.current, ctaRef.current]
-
         const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
         tl.fromTo(subRef.current,
@@ -45,22 +42,25 @@ export default function Hero() {
                     className="absolute inset-0 bg-cover bg-center opacity-60 grayscale-[15%]"
                     style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
                 />
-                <div
-                    className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
-                />
+
+                {/* NY TONING: Förbättrar läsbarhet dramatiskt på mobil */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
             </div>
 
-            {/* Content Container */}
-            <div className="relative z-10 h-full flex flex-col items-start justify-center px-6 md:px-16 lg:px-28 max-w-7xl mx-auto">
+            {/* Content Container - Nu med högre z-index för att ligga över toningen */}
+            <div className="relative z-20 h-full flex flex-col items-start justify-center px-6 md:px-16 lg:px-28 max-w-7xl mx-auto">
 
-                {/* Social Proof Pill - Rent & Auktoritärt */}
+                {/* Social Proof Pill */}
                 <div ref={badgeRef} className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 bg-white/10 border border-white/20 backdrop-blur-md mb-6">
                     <span className="text-oak text-sm">★★★★★</span>
                     <span className="font-body text-white text-xs md:text-sm font-semibold tracking-wide">
                         4.9/5 <span className="text-white/60 font-normal">| 4 300+ verifierade omdömen</span>
                     </span>
                 </div>
-                <p ref={subRef} className="font-mono text-black text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-4">
+
+                {/* Underubrik - Testar 'text-paper' för en lyxig beige ton mot det mörka */}
+                <p ref={subRef} className="font-mono text-oak text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-4">
                     William's Hårstudio — Vasastan
                 </p>
 
@@ -71,7 +71,6 @@ export default function Hero() {
 
                 {/* Knapp-rad */}
                 <div ref={ctaRef} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                    {/* Primär CTA: Boka - Matchar nu Navbar exakt */}
                     <a
                         href="https://www.bokadirekt.se/places/williams-harstudio-20126"
                         target="_blank"
@@ -84,7 +83,6 @@ export default function Hero() {
                         </svg>
                     </a>
 
-                    {/* Sekundär CTA: Ring - Nu med tydlig hover-effekt */}
                     <a
                         href="tel:0707790666"
                         className="group inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/15 text-white border border-white/20 hover:border-white/40 font-heading font-bold text-lg px-10 py-5 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-[1.02]"
@@ -108,7 +106,7 @@ export default function Hero() {
             </div>
 
             {/* Scroll Indikator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-3 opacity-40">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-3 opacity-40">
                 <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
             </div>
         </section >

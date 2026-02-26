@@ -112,7 +112,7 @@ function LocationPillar() {
     }, [])
 
     return (
-        <div className="flex flex-col h-full">
+        <div id="hitta-oss" className="flex flex-col h-full">
             <p className="font-mono text-oak-deep text-[10px] tracking-[0.3em] uppercase mb-4 font-bold">03 / Hitta oss</p>
             <h3 className="font-heading font-bold text-ink text-2xl mb-6">Vår plats</h3>
             <div className="flex-1 bg-paper border border-oak/20 rounded-3xl p-8 flex flex-col justify-between shadow-sm min-h-[380px]">
